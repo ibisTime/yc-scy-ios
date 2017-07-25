@@ -233,7 +233,7 @@
     http.code = @"802412";
     http.parameters[@"fromUserId"] = [TLUser user].userId;
     http.parameters[@"amount"] = [self.moneyTf.text convertToSysMoney];
-    //    http.parameters[@"token"] = [TLUser user].token;
+    http.parameters[@"token"] = [TLUser user].token;
     http.parameters[@"mobile"] = self.mobileTf.text;
     //XYF 信用分
     http.parameters[@"fromCurrency"] = kXYF;

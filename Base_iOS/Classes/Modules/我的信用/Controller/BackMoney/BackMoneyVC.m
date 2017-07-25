@@ -255,7 +255,7 @@
     TLNetworking *http = [TLNetworking new];
     http.showView = self.view;
     http.code = @"802433";
-    //    http.parameters[@"token"] = [ZHUser user].token;
+    http.parameters[@"token"] = [TLUser user].token;
     http.parameters[@"userId"] = [TLUser user].userId;
     http.parameters[@"remark"] = @"用户申请";
     http.parameters[@"cbAmount"] = [NSString stringWithFormat:@"%@", [self.amountTf.text convertToSysMoney]];   //@"-100";
