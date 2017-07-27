@@ -7,7 +7,7 @@
 //
 
 #import "TLBaseVC.h"
-#import "WXApi.h"
+//#import "WXApi.h"
 
 typedef void(^BindMobileBlock)(NSString *mobile, NSString *verifyCode);
 
@@ -15,6 +15,6 @@ typedef void(^BindMobileBlock)(NSString *mobile, NSString *verifyCode);
 
 @property (nonatomic,copy) BindMobileBlock bindMobileBlock;
 
-@property (nonatomic, strong) SendAuthResp *resp;
+//@property (nonatomic, strong) SendAuthResp *resp;
 
 @end

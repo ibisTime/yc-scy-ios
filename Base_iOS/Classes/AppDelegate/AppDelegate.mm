@@ -9,9 +9,9 @@
 #import "AppDelegate.h"
 
 #import "IQKeyboardManager.h"
-#import "WXApi.h"
-#import "TLWXManager.h"
-#import "TLAlipayManager.h"
+//#import "WXApi.h"
+//#import "TLWXManager.h"
+//#import "TLAlipayManager.h"
 
 #import "AppDelegate+Launch.h"
 
@@ -35,12 +35,6 @@
     
     //键盘
     [self configIQKeyboard];
-    
-    //配置地图
-//    [self configMapKit];
-    
-    //配置极光
-//    [self configJPushWithOptions:launchOptions];
     
     //配置根控制器
     [self configRootViewController];
@@ -70,39 +64,6 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     
-}
-
-
-// iOS9 NS_AVAILABLE_IOS
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
-    
-    if ([url.host isEqualToString:@"safepay"]) {
-        
-        [TLAlipayManager hadleCallBackWithUrl:url];
-        return YES;
-        
-    } else {
-        
-        return [WXApi handleOpenURL:url delegate:[TLWXManager manager]];
-        
-    }
-    
-    return YES;
-}
-
-// iOS9 NS_DEPRECATED_IOS
-- (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation {
-    
-    if ([url.host isEqualToString:@"safepay"]) {
-        
-        [TLAlipayManager hadleCallBackWithUrl:url];
-        return YES;
-        
-    } else {
-        
-        return [WXApi handleOpenURL:url delegate:[TLWXManager manager]];
-        
-    }
 }
 
 #pragma mark - Config
@@ -180,16 +141,6 @@
     
     self.window.rootViewController = [[NavigationController alloc] initWithRootViewController:[[TLUserLoginVC alloc] init]];
     
-}
-
-#pragma mark 微信支付结果
-- (void)onResp:(BaseResp *)resp {
-    
-    if ([resp isKindOfClass:[PayResp class]]) {
-        //支付返回结果
-        NSNotification *notification = [NSNotification notificationWithName:ORDER_PAY_NOTIFICATION object:[NSNumber numberWithInt:resp.errCode]];
-        [[NSNotificationCenter defaultCenter] postNotification:notification];
-    }
 }
 
 @end
