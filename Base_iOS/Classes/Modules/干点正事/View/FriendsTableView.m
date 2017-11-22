@@ -78,6 +78,16 @@ static NSString *identifierCell = @"FriendListCell";
     return 0.1;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    return [UIView new];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    return [UIView new];
+}
+
 #pragma mark - Events
 - (void)selectFriend:(UIButton *)sender {
 

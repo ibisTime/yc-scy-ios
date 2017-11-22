@@ -439,18 +439,14 @@
     return 10;
 }
 
-
-- (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section {
-    UITableViewHeaderFooterView *hfV = (UITableViewHeaderFooterView *)view;
-    hfV.contentView.backgroundColor = [UIColor zh_backgroundColor];
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     
+    return [UIView new];
 }
 
-- (void)tableView:(UITableView *)tableView willDisplayFooterView:(UIView *)view forSection:(NSInteger)section {
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     
-    UITableViewHeaderFooterView *hfV = (UITableViewHeaderFooterView *)view;
-    hfV.contentView.backgroundColor = [UIColor zh_backgroundColor];
-    
+    return [UIView new];
 }
 
 - (void)didReceiveMemoryWarning {

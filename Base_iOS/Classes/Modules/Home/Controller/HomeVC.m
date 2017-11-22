@@ -12,6 +12,7 @@
 #import "UIButton+WebCache.h"
 
 #import "CurrencyModel.h"
+#import "UpdateModel.h"
 
 #import "FuncView.h"
 
@@ -82,12 +83,20 @@
     [self getSysMsg];
     
     [NSTimer scheduledTimerWithTimeInterval:40 target:self selector:@selector(getSysMsg) userInfo:nil repeats:YES];
+    //配置更新
+    [self configUpdate];
 }
 
 #pragma mark - Init
 - (void)initScrollView {
 
     self.bgScrollView = [[UIScrollView alloc] initWithFrame:self.view.bounds];
+    
+    if (@available(iOS 11.0, *)) {
+        
+        self.bgScrollView.contentInsetAdjustmentBehavior = UIScrollViewContentInsetAdjustmentNever;
+    }
+    
     [self.view addSubview:self.bgScrollView];
     self.bgScrollView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshState)];
 
@@ -336,6 +345,55 @@
         [footerView addSubview:funcView];
         
     }
+}
+
+#pragma mark - Config
+- (void)configUpdate {
+    
+    //1:iOS 2:安卓
+    TLNetworking *http = [[TLNetworking alloc] init];
+    
+    http.code = @"805918";
+    http.parameters[@"type"] = @"ios-t";
+    
+    [http postWithSuccess:^(id responseObject) {
+        
+        UpdateModel *update = [UpdateModel mj_objectWithKeyValues:responseObject[@"data"]];
+        
+        //获取当前版本号
+        NSString *currentVersion = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        
+        if (![currentVersion isEqualToString:update.version]) {
+            //1：强制，0：不强制
+            if ([update.forceUpdate isEqualToString:@"0"]) {
+                
+                [TLAlert alertWithTitle:@"更新提醒" msg:update.note confirmMsg:@"立即升级" cancleMsg:@"稍后提醒" cancle:^(UIAlertAction *action) {
+                    
+                } confirm:^(UIAlertAction *action) {
+                    
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[update.downloadUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]];
+                    
+                }];
+                
+            } else {
+                
+                [TLAlert alertWithTitle:@"更新提醒" message:update.note confirmMsg:@"立即升级" confirmAction:^{
+                    
+                    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[update.downloadUrl stringByAddingPercentEncodingWithAllowedCharacters:[NSCharacterSet URLQueryAllowedCharacterSet]]]];
+                    
+                    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                        
+                        exit(0);
+                        
+                    });
+                }];
+            }
+        }
+        
+    } failure:^(NSError *error) {
+        
+    }];
+    
 }
 
 #pragma mark - Notification

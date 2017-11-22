@@ -39,36 +39,6 @@ void TLLog(NSString *format, ...) {
     
     _runEnv = runEnv;
     
-//    self.companyCode = @"CD-JKEG000011";
-//    self.systemCode = @"CD-JKEG000011";
-//    
-//    switch (_runEnv) {
-//            
-//        case RunEnvRelease: {
-//            
-//            self.qiniuDomain = @"http://or4e1nykg.bkt.clouddn.com";
-//            self.addr = @"http://116.62.114.86:8901"; //test
-//            self.shareBaseUrl = @"http://m.caigo888.com/consume/detail.html";
-//            
-//        }break;
-//            
-//        case RunEnvDev: {
-//            
-//            self.qiniuDomain = @"http://or4e1nykg.bkt.clouddn.com";
-//            self.addr = @"http://121.43.101.148:8901";
-//            self.shareBaseUrl = @"http://dev.hichengdai.com/consume/detail.html";
-//            
-//        }break;
-//            
-//        case RunEnvTest: {
-//            
-//            self.qiniuDomain = @"http://or4e1nykg.bkt.clouddn.com";
-//            self.addr = @"http://116.62.114.86:8901";
-//            self.shareBaseUrl = @"http://m.test.caigo888.com/consume/detail.html";
-//            
-//        }break;
-//            
-//    }
     self.companyCode = @"CD-CYC000009";
     self.systemCode = @"CD-CYC000009";
     
@@ -77,7 +47,7 @@ void TLLog(NSString *format, ...) {
         case RunEnvRelease: {
             
             self.qiniuDomain = @"http://oq4vi26fi.bkt.clouddn.com";
-            self.addr = @"http://121.40.113.128:5301";
+            self.addr = @"http://api.yc.hichengdai.com";
             
         }break;
             
@@ -107,7 +77,7 @@ void TLLog(NSString *format, ...) {
 
 - (NSString *)getUrl {
 
-    return [self.addr stringByAppendingString:@"/forward-service/api"];
+    return [self.addr stringByAppendingString:@""];
 }
 
 - (NSString *)aliMapKey {

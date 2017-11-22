@@ -143,6 +143,40 @@
     
 }
 
++ (void)alertWithTitle:(NSString *)title message:(NSString *)message confirmMsg:(NSString *)confirmMsg confirmAction:(void(^)())confirmAction
+{
+    
+    UIAlertController *alertController = [UIAlertController alertControllerWithTitle:title message:message preferredStyle:UIAlertControllerStyleAlert];
+    //取消行为
+    UIAlertAction *action2 = [UIAlertAction actionWithTitle:confirmMsg style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        if (confirmAction) {
+            confirmAction();
+        }
+    }];
+    
+    
+    [alertController addAction:action2];
+    //rootViewController 展示
+    
+    
+    UIViewController *rootViewController = [UIApplication sharedApplication].keyWindow.rootViewController ;
+    
+    if ([rootViewController isKindOfClass:[UITabBarController class]]) {
+        
+        UITabBarController *tbc = (UITabBarController *)rootViewController;
+        [tbc.selectedViewController  presentViewController:alertController animated:YES completion:nil];
+        
+    } else {
+        
+        [rootViewController presentViewController:alertController animated:YES completion:nil];
+        
+    }
+    
+    
+}
+
+
 + (UIAlertController *)alertWithTitle:(NSString *)title
                                   msg:(NSString *)msg
                            confirmMsg:(NSString *)confirmMsg

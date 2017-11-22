@@ -64,6 +64,7 @@
 		211CF1601F20DBB700233A3A /* QRCodeTopRight@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 211CF1531F20DBB700233A3A /* QRCodeTopRight@2x.png */; };
 		211CF1611F20DBB700233A3A /* SGScanningQRCodeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211CF1551F20DBB700233A3A /* SGScanningQRCodeView.m */; };
 		211CF1641F2206D100233A3A /* TextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 211CF1631F2206D100233A3A /* TextView.m */; };
+		211CF9841FC3CFD500E51FCF /* UpdateModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 211CF9831FC3CFD500E51FCF /* UpdateModel.m */; };
 		2120ABA91F230A2A001CD1A9 /* TLComposeTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2120ABA81F230A2A001CD1A9 /* TLComposeTextView.m */; };
 		2120ABAC1F230D02001CD1A9 /* TLTextStorage.m in Sources */ = {isa = PBXBuildFile; fileRef = 2120ABAB1F230D02001CD1A9 /* TLTextStorage.m */; };
 		2120ABAF1F233283001CD1A9 /* EatListCell2.m in Sources */ = {isa = PBXBuildFile; fileRef = 2120ABAE1F233283001CD1A9 /* EatListCell2.m */; };
@@ -308,6 +309,8 @@
 		211CF1551F20DBB700233A3A /* SGScanningQRCodeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SGScanningQRCodeView.m; sourceTree = "<group>"; };
 		211CF1621F2206D100233A3A /* TextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TextView.h; sourceTree = "<group>"; };
 		211CF1631F2206D100233A3A /* TextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TextView.m; sourceTree = "<group>"; };
+		211CF9821FC3CFD500E51FCF /* UpdateModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpdateModel.h; sourceTree = "<group>"; };
+		211CF9831FC3CFD500E51FCF /* UpdateModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpdateModel.m; sourceTree = "<group>"; };
 		2120ABA71F230A2A001CD1A9 /* TLComposeTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLComposeTextView.h; sourceTree = "<group>"; };
 		2120ABA81F230A2A001CD1A9 /* TLComposeTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TLComposeTextView.m; sourceTree = "<group>"; };
 		2120ABAA1F230D02001CD1A9 /* TLTextStorage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TLTextStorage.h; sourceTree = "<group>"; };
@@ -1010,6 +1013,8 @@
 			children = (
 				21146A041F1D9C900031921D /* CurrencyModel.h */,
 				21146A051F1D9C900031921D /* CurrencyModel.m */,
+				211CF9821FC3CFD500E51FCF /* UpdateModel.h */,
+				211CF9831FC3CFD500E51FCF /* UpdateModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2012,6 +2017,7 @@
 				21F82E091F1778020019B176 /* UIView+XMGExtension.m in Sources */,
 				21146A231F1DAF170031921D /* BillTableView.m in Sources */,
 				21146A1F1F1DA9420031921D /* SettingModel.m in Sources */,
+				211CF9841FC3CFD500E51FCF /* UpdateModel.m in Sources */,
 				21F82E341F177BB30019B176 /* AddressPickerView.m in Sources */,
 				21F82E311F177A810019B176 /* UIFont+UI.m in Sources */,
 				21F82E021F1778020019B176 /* UIImage+ImageEffects.m in Sources */,

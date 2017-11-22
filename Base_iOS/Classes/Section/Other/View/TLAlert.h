@@ -41,6 +41,9 @@
           confirmAction:(void(^)())confirmAction;
 
 
++ (void)alertWithTitle:(NSString *)title message:(NSString *)message confirmMsg:(NSString *)confirmMsg confirmAction:(void(^)())confirmAction;
+
+
 //+ (void)alertWithTitile:(NSString *)title
 //                message:(NSString *)message
 //             controller:(UIViewController *)controller

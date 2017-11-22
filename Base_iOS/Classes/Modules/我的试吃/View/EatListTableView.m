@@ -95,6 +95,16 @@ static NSString *identifierCell2 = @"EatListCell2";
     return 0.1;
 }
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    
+    return [UIView new];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+    
+    return [UIView new];
+}
+
 #pragma mark - HealthCircleCellDelegate
 
 - (void)didSelectActionWithType:(EatStatusType)type index:(NSInteger)index {
